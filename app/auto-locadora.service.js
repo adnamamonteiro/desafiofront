@@ -19,7 +19,7 @@
         // ======================================
 
         function listar() {
-            return $http.get(constantes.URL_BASE + '/carro')
+            return $http.get(constantes.URL + '/carro')
                 .then(function (response) {
                     return response.data;
                 })
@@ -27,7 +27,7 @@
         }
 
         function alugar(_params, data) {
-            return $http.post(constantes.URL_BASE + '/contrato/'+_params, data)
+            return $http.post(constantes.URL + '/contrato/'+_params, data)
                 .then(function (response) {
                     return response.data;
                 }, function(response){
@@ -36,7 +36,7 @@
         }
 
         function contratosAtivos(){
-            return $http.get(constantes.URL_BASE + '/contrato')
+            return $http.get(constantes.URL + '/contrato')
                 .then(function (response) {
                     return response.data;
                 })
@@ -44,7 +44,7 @@
         }
 
         function desativar(_params) {
-            return $http.put(constantes.URL_BASE + '/contrato/'+_params)
+            return $http.put(constantes.URL + '/contrato/'+_params)
                 .then(function (response) {
                     return response.data;
                 })
