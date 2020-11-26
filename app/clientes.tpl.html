@@ -1,0 +1,52 @@
+<div ng-controller="ClienteController as vm" class="container" ng-init="vm.iniciar()">
+    <h2 class="mt-5">Clientes</h2>
+    <hr class="mt-1 bg-primary">
+
+    <table class="table" style="font-size: 1em;" >
+        <thead>
+          <tr class="table-primary">
+            <th scope="col">Nome</th>
+            <th scope="col">CPF</th>
+            <th scope="col">Contato</th>
+            <th scope="col">Endereço</th>
+            <th scope="col">Contrato Ativo</th>
+          </tr>
+        </thead>
+        <tbody ng-repeat="cliente in vm.listaClientes track by $index">
+          <tr ng-class="{'table-dark' : $index%2!=0}">
+            <td rowspan="2">
+              <span>{{cliente.nome}}</span>
+              <div class="row"></div>
+              <a class="text-muted c-pointer" ng-click="vm.historicoCliente(cliente.id, cliente.nome)">Ver histórico</a>
+            </td>
+            <td>{{cliente.cpf | cpfMask}}</td>
+            <td rowspan="2">
+              <div class="row display-flex">
+                  <i class="material-icons mr-2 table-icon" aria-hidden="true">local_phone</i>
+                  <span>{{cliente.contato | telMask}}</span>
+              </div>
+              <div class="row display-flex">
+                <i class="material-icons mr-2" aria-hidden="true">local_post_office</i>
+                <span>{{cliente.email}}</span>
+              </div>
+            </td>
+            <td rowspan="4">
+              <div class="row"><span>{{cliente.logradouro}},</span></div>
+              <div class="row"><span>{{cliente.complemento}}</span></div>
+              <div class="row"><span>{{cliente.bairro}}</span></div>
+              <div class="row"><span>{{cliente.cidade}}-{{cliente.uf}}</span></div>
+            </td>
+            <td rowspan="2">
+              <div class="row" ng-repeat="contrato in vm.listaContratosAtivos">
+                <div class="col" ng-show="contrato.cpf == cliente.cpf">
+                  <div class="row"><span>{{contrato.modeloCarro}}</span></div>
+                  <div class="row py-3">
+                    <button class="btn btn-danger" ng-click="vm.desativarContrato(contrato.id)">Encerrar contrato</button>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

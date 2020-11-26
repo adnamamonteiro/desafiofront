@@ -1,0 +1,86 @@
+.c-pointer {
+    cursor: pointer;
+}
+
+.table-icon{
+   font-size: 1.4rem;
+}
+
+/* breadcrumbs */
+
+.breadcrumb-pagination {
+    width: 100%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-bottom: 1px solid white;
+}
+
+.breadcrumb-pagination div {
+    width: 49.8%;
+    display:inline-block;
+}
+
+.breadcrumb-pagination div span {
+    margin:0 auto;
+    display:block;
+    border-radius:100%;
+    height: 2em;
+    width: 2em;
+    text-align: center;
+    padding:6px 0 0 0px;
+    font-size: 2rem;
+}  
+
+.breadcrumb-pagination div p {
+    text-align:center;
+    line-height:0;
+    margin:30px auto 25px;
+    font-size: 1.5rem;
+}
+
+.active span {
+    background-color: #df691a;
+    color:#fff;
+}
+    
+.todo span {
+    background-color:none;
+    color:#E1E6EB;
+    border: 2px solid #E1E6EB;
+  }
+    
+.active p {
+   border-bottom:2px solid #df691a ;
+   padding-bottom:27px;
+   margin-bottom:0px !important;
+   color:#df691a ;
+   font-weight:700;
+}
+
+/* catalogo */
+
+.locatario {
+    margin-top: 5%;
+}
+
+/* home */
+.steps{
+    text-align:center;
+    margin: 8% 10% 0 0;
+}
+
+.steps p{
+    font-size: 2rem;
+    color:#df691a;
+    font-weight:700;
+}
+
+/* cadastro */
+label {
+    font-size: 1rem;
+}
+
+/* modal */
+#confirmaCpf{
+    width: 50%;
+}

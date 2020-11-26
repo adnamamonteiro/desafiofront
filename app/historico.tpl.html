@@ -1,0 +1,24 @@
+<div class="container">
+
+    <h2 class="mt-5">Histórico de {{nomeCliente}}</h2>
+    <hr class="mt-1 bg-primary">
+
+    <table class="table" style="font-size: 1em;" >
+        <thead>
+          <tr class="table-active">
+            <th scope="col">Modelo</th>
+            <th scope="col">Placa</th>
+            <th scope="col">Data de contratação</th>
+            <th scope="col">Data de devolução</th>
+          </tr>
+        </thead>
+        <tbody ng-repeat="contrato in historicoCliente">
+          <tr ng-class="{'table-success' : contrato.status=='ATIVADO'}">
+            <td>{{contrato.modeloCarro}}</td>
+            <td>{{contrato.placa}}</td>
+            <td>{{contrato.dataAtivacao}}</td>
+            <td>{{contrato.dataDesativacao}}</td>
+          </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,13 @@
+<div class="breadcrumb-pagination">
+
+    <div ng-class="{'active': page === 'cadastrar', 'todo': page === 'catalogo'}">
+      <span ng-click="vm.go('/cadastrar')">1</span>
+      <p>Cadastrar cliente</p>
+    </div>
+  
+    <div  ng-class="{'active': page === 'catalogo','todo': page === 'cadastrar'}">
+      <span ng-click="vm.go('/catalogo')">2</span>
+      <p>Escolher um automóvel</p>
+    </div>
+    
+</div>

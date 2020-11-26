@@ -1,0 +1,91 @@
+<div ng-controller="CadastrarController as vm" class="container" ng-init="vm.iniciar()">
+    <div ng-include="'./breadcrumbs.tpl.html'" class="col"></div>
+    <div class="container mx-auto py-5 mt-5 jumbotron" style="width: 600px;">
+        <form name="vm.cadastro" ng-submit="vm.cadastro.$valid && vm.cadastrar()">
+            <div class="form-group row">
+                <div class="input-field col s6">
+                    <label for="nome">Nome*</label> 
+                    <input type="text" name="nome" placeholder="Nome completo" class="form-control" ng-required="true" ng-model='vm.nome'
+                    ng-pattern="/^[a-zA-Z\s]*$/" ng-class="{'is-invalid': vm.cadastro.nome.$invalid && vm.validar}" ng-minlength="3" ng-maxlength="100">
+                    <div class="invalid-feedback" ng-show="vm.cadastro.nome.$invalid"><p>Digite um nome válido</p></div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="input-field col s6">
+                    <label for="cpf">CPF*</label>
+                    <input type="text" name="cpf" placeholder="000.000.000-00" class="form-control" ng-required="true" ng-model='vm.cpf'
+                        mask="999.999.999-99" clean="true" ng-class="{'is-invalid': vm.cadastro.cpf.$invalid && vm.validar}">
+                    <div class="invalid-feedback" ng-show="vm.cadastro.cpf.$invalid"><p>Digite um CPF válido</p></div>
+                </div>
+
+                <div class="input-field col s6">
+                    <label for="contato">Contato*</label>
+                    <input type="tel" name="tel" placeholder="(00) 00000-0000" class="form-control" ng-required="true" ng-model='vm.contato'
+                        mask="(99) 9?9999-9999" clean="true" ng-class="{'is-invalid': vm.cadastro.tel.$invalid && vm.validar}" >
+                    <div class="invalid-feedback" ng-show="vm.tel.cpf.$invalid"><p>Digite um telefone válido</p></div>
+                    </div>
+            </div>
+            <div class="form-group row">
+                <div class="input-field col s6">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" placeholder="email@email.com" class="form-control" ng-model='vm.email'
+                        ng-class="{'is-invalid': vm.cadastro.email.$invalid && vm.validar}" >
+                    <div class="invalid-feedback" ng-show="vm.cadastro.email.$invalid"><p>Digite um email válido</p></div>
+                </div>
+            </div>
+    
+            <div class="form-group row">
+                <div class="input-field col s6">
+                <label for="cep">Cep*</label>
+                <input type="text" name="cep" placeholder="00000000" class="form-control" ng-required="true" ng-model="vm.cep"
+                    mask="99999999" ng-blur="vm.buscaCep()" ng-class="{'is-invalid' : vm.validCep == false || (vm.cadastro.cep.$invalid && vm.validar)}">
+                <div class="invalid-feedback" ng-show="vm.validCep == false || vm.cadastro.cep.$invalid"><p>CEP não encontrado</p></div>
+                <small>
+                    <a class="text-muted" target="_blank" href="https://buscacep.correios.com.br/" >Descobrir CEP</a>
+                </small>
+                </div>
+
+                <div class="input-field col s6">
+                    <label for="bairro">Bairro*</label> 
+                    <input type="text" name="bairro" class="form-control" ng-required="true" ng-model='vm.bairro' value="{{vm.bairro}}"
+                    ng-class="{'is-invalid': vm.cadastro.bairro.$invalid && vm.validar}">
+                    <div class="invalid-feedback" ng-show="vm.cadastro.bairro.$invalid"><p>Digite um bairro válido</p></div>
+                    
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="input-field col s6">
+                <label for="logradouro">Logradouro</label> 
+                <input type="text" name="logradouro" class="form-control" ng-model='vm.logradouro' value="{{vm.logradouro}}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="input-field col s6">
+                <label for="cidade">Cidade*</label> 
+                <input type="text" name="cidade" class="form-control" ng-required="true" ng-model='vm.cidade' value="{{vm.cidade}}"
+                ng-class="{'is-invalid': vm.cadastro.cidade.$invalid && vm.validar}">
+                    <div class="invalid-feedback" ng-show="vm.cadastro.cidade.$invalid"><p>Digite uma cidade válida</p></div>
+                
+                </div>
+                <div class="input-field col s6">
+                    <label for="uf">UF*</label> 
+                    <input type="text" name="uf" class="form-control" ng-required="true" ng-model='vm.uf' value="{{vm.uf}}"
+                    ng-class="{'is-invalid': vm.cadastro.uf.$invalid && vm.validar}">
+                    <div class="invalid-feedback" ng-show="vm.cadastro.uf.$invalid"><p>Digite uma UF válida</p></div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="input-field col s6">
+                <label for="complemento">Complemento</label>
+                <input type="text" name="comp" placeholder="Apto 0" class="form-control" ng-model='vm.complemento'>
+                </div>
+            </div>
+            <div class="row display-inline-block float-right">
+                <formgroup>
+                    <input type="reset" class="btn btn-info text-center" value="Cancelar">
+                    <input type="submit" class="btn btn-primary text-center" value="Próximo" ng-click="vm.validar = true;">
+                </formgroup>
+            </div>
+        </form>
+    </div>
+</div>

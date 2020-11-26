@@ -1,0 +1,22 @@
+<div ng-controller="HomeController as vm" class="container" ng-init="vm.iniciar()">
+    <h1>HOME</h1>
+    <p>
+        Bem-Vindo a
+        <strong class="text-info">AutoLocadoraApp</strong>!
+        O melhor App para alugar um automóvel.
+    </p>
+
+    <!-- <h2 class="mt-5">Nosso Catálogo</h2> -->
+    <h2 class="mt-5">Aluguel em 2 passos</h2>
+    <hr class="mt-1 bg-primary">
+    <div class="row steps">
+        <div class="col-6">
+            <span class="material-icons c-pointer" style="font-size: 13rem;" ng-click="vm.go('/cadastrar')">assignment</span>
+            <p class="c-pointer" ng-click="vm.go('/cadastrar')">Cadastrar cliente</p>
+        </div>
+        <div class="col-6">
+            <span class="material-icons c-pointer" style="font-size: 13rem;" ng-click="vm.go('/catalogo')">directions_car</span>
+            <p class="c-pointer" ng-click="vm.go('/catalogo')">Escolher um automóvel</p>
+        </div>
+    </div>
+</div>

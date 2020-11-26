@@ -1,0 +1,58 @@
+<div ng-controller="CatalogoController as vm" class="container" ng-init="vm.iniciar()">
+  <div class="row" ng-include="'./breadcrumbs.tpl.html'"></div>
+  <div class="row">
+    <div class="col-4" ng-repeat="carro in vm.listaCarros track by $index">
+      <div class="card mb-4" style="width: 18rem;">
+        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+        <div class="card-body">
+          <h5 class="card-title">
+              {{carro.modelo}}
+          </h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+              {{carro.marca}}
+          </h6>
+          <p>
+              <strong>Ano: </strong> {{carro.ano}} &nbsp; | &nbsp;
+              <strong>Placa: </strong> {{carro.placa | placaComHifen}}
+          </p>
+          <a ng-show="carro.disponivel === true" data-toggle="modal" data-target="#modal1" 
+            class="btn btn-primary text-center" ng-click="vm.setCarro(carro.placa)">Alugar</a>
+          <!-- REFATORAR -->
+          <a ng-show="carro.disponivel === false" ng-click="vm.locatario(carro.placa);showLocatario = true" class="btn btn-outline-info text-center">Indisponível</a>                
+          <h6 ng-show="showLocatario === true && vm.id === carro.placa" class="mb-2 text-muted locatario">
+              Locatário: {{vm.nome}}
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal -->
+  <div id="modal1" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Alugar &nbsp;<strong>{{vm.carro | placaComHifen}}</strong></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="vm.limpar('alugaForm')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form id="alugaForm" ng-submit="vm.alugar()">
+          <div class="modal-body">
+              <div class="form-group">
+                <label for="cpf">Digite o CPF do cliente para concluir o aluguel</label>
+                <input type="text" placeholder="000.000.000-00" id="confirmaCpf" class="form-control" mask="999.999.999-99" clean="true" 
+                  ng-model="vm.confirmaCpf" >
+              </div>
+          </div>
+          <div class="modal-footer">
+            <input type="reset" class="btn btn-secondary" value="Cancelar" data-dismiss="modal" ng-click="vm.limpar('alugaForm')">
+            <input type="submit" class="btn btn-primary" value="Concluir" >
+          </div>
+      </form>
+      </div>
+    </div>
+  </div>
+  <!-- /modal -->
+
+</div>
