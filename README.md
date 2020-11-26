@@ -1,9 +1,7 @@
 # Maratona Dev Stefanini 2020 - Projeto desafiofront
 
 <p>
-	Este projeto foi desenvolvido com AngularJS, como desafio final da Maratona Dev Stefanini.</br></br>
-	
-	* A função "cadastrar cliente" está integrada com o serviço de consulta de cep https://viacep.com.br/
+	Este projeto foi desenvolvido com AngularJS, como desafio final da Maratona Dev Stefanini.</br>
 </p>
 
 ## O Desafio
@@ -16,7 +14,8 @@
 
 ### Para Cliente:
 
-- [x] Cadastrar Cliente 
+- [x] Cadastrar Cliente </br>
+A função "cadastrar cliente" está integrada com o serviço de consulta de cep https://viacep.com.br/
 - [x] Listar Cliente
 
 ### Para aluguéis de carro:
@@ -45,4 +44,4 @@ histórico de todos os carros que o cliente já alugou
 ### Deploy da aplicação
 
 
-##### [Back-end do projeto](https://github.com/adnamamonteiro/desafioapi/)
+#### [Back-end do projeto](https://github.com/adnamamonteiro/desafioapi/)
