@@ -19,7 +19,7 @@
         // ======================================
 
         function listar() {
-            return $http.get(constantes.URL + '/cliente')
+            return $http.get(constantes.URL+ '/cliente')
                 .then(function (response) {
                     return response.data;
                 })
@@ -27,7 +27,7 @@
         }
 
         function cadastrar(data) {
-            return $http.post(constantes.URL + '/cliente', data)
+            return $http.post(constantes.URL+ '/cliente/cadastrar', data)
                 .then(function (response) {
                     return response.data;
                 }, function(response){
@@ -44,7 +44,7 @@
         }
 
         function historico(_params) {
-            return $http.get(constantes.URL + '/cliente/historico/'+_params)
+            return $http.get(constantes.URL+ '/cliente/historico/'+_params)
                 .then(function (response) {
                     return response.data;
                 })
