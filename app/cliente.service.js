@@ -36,7 +36,7 @@
         }
 
         function buscaCep(_params) {
-            return $http.get('http://viacep.com.br/ws/'+_params+'/json/')
+            return $http.get('https://viacep.com.br/ws/'+_params+'/json/')
                 .then(function (response) {
                     return response.data;
                 })
