@@ -105,6 +105,6 @@ function configGrunt(grunt) {
     grunt.registerTask(
         'build',
         'Builda o projeto...',
-        ['clean', 'copy:dist', 'copy:vendor', 'cssmin', 'uglify']
+        ['clean', 'copy:dist', 'copy:vendor','copy:all', 'cssmin', 'uglify']
     );
 }
